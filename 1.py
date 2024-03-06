@@ -26,7 +26,7 @@ def header(user, password):
 
 def upload_image_to_wordpress(file_path, url, header_json):
     media = {'file': open(file_path,"rb"),'caption': 'My great demo picture'}
-    responce = requests.post(url + "wp-json/wp/v2/media", headers = header_json, files = media)
+    responce = requests.post(url + "wp-json/wp/v2/media", headers = header_json, files = media, timeout=60)
     print(responce)
 
 if __name__ == '__main__':
